@@ -1,1 +1,0 @@
-from inkwell import Config

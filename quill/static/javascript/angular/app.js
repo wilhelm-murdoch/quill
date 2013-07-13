@@ -1,0 +1,1 @@
+quill = angular.module('quill', [])

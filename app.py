@@ -2,10 +2,15 @@
 import os
 from quill import quill
 
-app = quill.bootstrap('inkwell.config.LocalConfig')
+app = quill.bootstrap(os.environ.get('QUILL_CONFIG_MODULE', None))
 
 if __name__ == '__main__':
-    print "Quill running in {0} ...".format(app.config['ENVIRONMENT'])
+    print "{} running in {} on port {}...".format(
+          app.config['THEME']
+        , app.config['ENVIRONMENT']
+        , app.config['PORT']
+    )
+
     app.run(
           host=app.config['HOST']
         , port=app.config['PORT']
