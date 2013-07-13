@@ -1,4 +1,3 @@
-Quill
-=====
+# Quill
 
-A front-end implementation of Inkwell: https://github.com/wilhelm-murdoch/inkwell
+An nice template for [Inkwell](https://github.com/wilhelm-murdoch/inkwell).
