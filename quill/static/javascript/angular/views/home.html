@@ -1,0 +1,4 @@
+<div ng-repeat="article in articles">
+  <h2>{{ article.meta.title }}</h2>
+  <div ng-bind-html-unsafe="article.body">{{ article.body }}</div>
+</div>
