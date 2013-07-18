@@ -1,0 +1,5 @@
+<h2>Archive View</h2>
+<div ng-repeat="article in articles">
+  <h2><a href="#{{ article.meta.path }}" title="">{{ article.meta.title }}</a></h2>
+  <div ng-bind-html-unsafe="article.body">{{ article.body }}</div>
+</div>

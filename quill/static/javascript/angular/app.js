@@ -1,39 +1,93 @@
-angular.module('Quill', [])
+angular.module('Quill', ['ngResource'])
 
-  .controller('QuillCtrl', ['$rootScope', 'Inkwell', '$http', function($rootScope, Inkwell, $http) {
+  .run(['$rootScope', '$location', function($rootScope, $location) {
+    $rootScope.$on('$routeChangeError', function() {
+      $location.path('/404').replace()
+    })
+  }])
+
+  .controller('QuillCtrl', ['$http', function($http) {
     $http.defaults.headers.common.Accept = 'application/json'
   }])
 
-  .controller('QuillIndexCtrl', ['$scope', 'Inkwell', function($scope, Inkwell) {
-    $scope.articles = Inkwell.get().success(function(resource) {
-      $scope.articles = resource
+  .controller('QuillIndexCtrl', ['$scope', 'ArticlesLoader', function($scope, ArticlesLoader) {
+    $scope.articles = null
+    $scope.moment = moment
+    ArticlesLoader.query({ limit: 5 }, function(articles) {
+      $scope.articles = articles
     })
   }])
 
-  .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+  .controller('QuillArchiveCtrl', ['$scope', '$route', '$location', 'ArticlesLoader', function($scope, $route, $location, ArticlesLoader) {
+    $scope.articles = null
+    $scope.moment = moment
+    ArticlesLoader.query({
+        year:  $route.current.params.year
+      , month: $route.current.params.month
+      , day:   $route.current.params.day
+    }
+    , function(articles) {
+      $scope.articles = articles
+    }
+    , function(response) {
+      if(_.contains([404, 500], response.status)) {
+        $location.path('/' + response.status).replace()
+      }
+    })
+  }])
+
+  .controller('QuillArticleCtrl', ['$scope', '$route', '$location', 'ArticlesLoader', function($scope, $route, $location, ArticlesLoader) {
+    $scope.articles = null
+    $scope.moment = moment
+    ArticlesLoader.get({
+        year:  $route.current.params.year
+      , month: $route.current.params.month
+      , day:   $route.current.params.day
+      , title: $route.current.params.title
+    }
+    , function(article) {
+      $scope.article = article
+    }
+    , function(response) {
+      if(_.contains([404, 500], response.status)) {
+        $location.path('/' + response.status).replace()
+      }
+    })
+  }])
+
+  .config(['$routeProvider', function($routeProvider) {
+    var archiveConfig = {
+        controller: 'QuillArchiveCtrl'
+      , templateUrl: 'static/javascript/angular/views/archive.html'
+    }
+
     $routeProvider.when('/', {
         controller: 'QuillIndexCtrl'
       , templateUrl: 'static/javascript/angular/views/home.html'
-    }).otherwise({
-      redirectTo: '/'
+    })
+    .when('/404', {
+      templateUrl: 'static/javascript/angular/views/404.html'
+    })
+    .when('/500', {
+      templateUrl: 'static/javascript/angular/views/500.html'
+    })
+    .when('/:year', archiveConfig)
+    .when('/:year/:month', archiveConfig)
+    .when('/:year/:month/:day', archiveConfig)
+    .when('/:year/:month/:day/:title', {
+        controller: 'QuillArticleCtrl'
+      , templateUrl: 'static/javascript/angular/views/article.html'
+    })
+    .otherwise({
+      redirectTo: '/404'
     })
   }])
 
-  .factory('Inkwell', ['$http', function($http) {
-    return {
-      get: function(year, month, day, title) {
-        var url = '/inkwell'
-        if(year) {
-          url += '/' + year
-        } else if(year && month) {
-          url += '/' + year + '/' + month
-        } else if(year && month && day) {
-          url += '/' + year + '/' + month + '/' + day
-        } else if(year && month && day && title) {
-          url += '/' + year + '/' + month + '/' + day + '/' + title
-        }
-
-        return $http.get(url)
-      }
-    }
+  .factory('ArticlesLoader', ['$resource', function($resource) {
+    return $resource('/inkwell/:year/:month/:day/:title', {
+        year:   '@year'
+      , month:  '@month'
+      , day:    '@day'
+      , title:  '@title'
+    })
   }])

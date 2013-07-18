@@ -1,0 +1,271 @@
+body {
+  color: #32323a;
+  font: normal 400 1.2em/1.563 'Crimson Text', serif;
+  padding: 25px 50px;
+}
+
+h1, h2, h3, h4, h5, b, strong, dt, th, caption, label {
+  color: #18181e;
+}
+
+h1, h2, h3, h6 {
+  font-weight: 400;
+}
+
+h4, h5 {
+  font-weight: 700;
+}
+
+h4, h5, h6 {
+  font-family: 'Lato', sans-serif;
+}
+
+h1 {
+  font-size: 1.875em;
+  line-height: 1.167;
+  margin-bottom: 1.167em;
+}
+
+p + h1 {
+  margin-top: 1.167em;
+}
+
+h2 {
+  border-bottom: 1px dotted #d9d9dc;
+  font-size: 1.75em;
+  line-height: 1.071;
+  margin: 1.071em 0 0.429em;
+  padding-bottom: 0.429em;
+}
+
+h3 {
+  font-size: 1.438em;
+  line-height: 1.087;
+  margin-bottom: 0.870em;
+}
+
+h4 {
+  font-size: 1.188em;
+  line-height: 1.3;
+  margin-bottom: 0.789em;
+}
+
+h5 {
+  font-size: 1.063em;
+  line-height: 1.176;
+  margin-bottom: 0.882em;
+}
+
+h6 {
+  color: #696975;
+  font-size: 0.875em;
+  font-style: italic;
+  line-height: 1.429;
+  margin-bottom: 0.357em;
+}
+
+p, address {
+  margin-bottom: 1.563em;
+}
+
+blockquote {
+  border-left: 0.313em solid #d9d9dc;
+  padding-left: 1.25em;
+}
+
+blockquote p {
+  color: #696975;
+  font-style: italic;
+  quotes: '\201c' '\201d';
+  text-indent: -0.313em;
+}
+
+blockquote p:before, q:before, q q:before {
+  content: open-quote;
+}
+
+blockquote p:after, q:after, q q:after {
+  content: close-quote;
+}
+
+q {
+  quotes: '\201c' '\201d' '\2018' '\2019';
+}
+
+strong, b {
+  font-weight: 700;
+}
+
+em, i, cite {
+  font-style: italic;
+}
+
+small {
+  font-size: 0.875em;
+  line-height: 1.429;
+}
+
+mark {
+  background-color: #ffff00;
+}
+
+strike, del {
+  color: #93250d;
+  text-decoration: line-through;
+}
+
+abbr, acronym, ins {
+  border-bottom: 1px dotted;
+}
+
+abbr, acronym {
+  cursor: help;
+  text-transform: uppercase;
+}
+
+ins {
+  text-decoration: none;
+}
+
+sup, sub {
+  font-size: 0.75em;
+  line-height: 1;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.333em;
+}
+
+sub {
+  bottom: -0.333em;
+}
+
+address {
+  font-style: normal;
+}
+
+/*----------------------------------------------------------------------------*/
+/* Lists
+/*----------------------------------------------------------------------------*/
+
+ul, ol, dl, dd {
+  margin-bottom: 1.563em;
+}
+ul, ol {
+  margin-left: 1.25em;
+}
+ul {
+  list-style: disc;
+}
+ul ul, ol ul {
+  list-style: circle;
+}
+ol, ul ol, ol ol ol {
+  list-style: decimal;
+}
+ol ol {
+  list-style: lower-alpha;
+}
+ul ul, ol ul, ul ol, ol ol {
+  margin: 0.625em 0 0.938em;
+  padding-left: 1.563em;
+}
+dt {
+  font-size: 1.125em;
+  font-weight: 700;
+  line-height: 1.389;
+}
+
+
+code {
+  background-color: #f2f2fc;
+  color: #18181e;
+  font: 0.875em/1.429 Courier, Monaco, monospace;
+  padding: 0.214em;
+}
+
+pre {
+  background-color: #f2f2fc;
+  margin-bottom: 1.714em;
+  overflow: auto;
+  overflow-y: hidden;
+  padding: 0 0 1.429em 1.429em;
+}
+
+pre code {
+  background: none;
+  font-size: 14px;
+  padding: 0;
+}
+
+header {
+  text-align: center;
+}
+
+header h1 {
+
+}
+
+article {
+  padding-bottom: 50px;
+  margin-bottom: 50px;
+  border-bottom: 1px solid #eee;
+}
+
+article header {
+  margin-bottom: 1.25em;
+  text-align: center;
+  position: relative;
+}
+
+article header h2 {
+  border: none;
+  margin: 0;
+  padding: 0;
+  font-size: 2.4em;
+  line-height: 1.1em;
+}
+
+article header h2 a {
+  color: #323232;
+  text-decoration: none;
+}
+
+article header h2 a:hover {
+  border-bottom: 1px solid #323232;
+}
+
+article header time {
+  font: normal 700 0.75em/1.667 'Lato', sans-serif;
+  color: #696975;
+  display: block;
+  letter-spacing: 0.167em;
+  margin: 1em 0;
+  padding-bottom: 0.833em;
+  text-transform: uppercase;
+}
+
+article p {
+  margin: 0 24%;
+  text-align: justify;
+  margin-bottom: 1.1em;
+  font-size: 1.3em;
+}
+
+.container {
+  margin: 0 auto;
+  position: relative;
+  max-width: 68.75em;
+}
+
+.animate-enter {
+  -webkit-transition: .5s linear all;
+  transition: .5s linear all;
+  opacity: 0;
+}
+
+.animate-enter.animate-enter-active {
+  opacity: 1;
+}
