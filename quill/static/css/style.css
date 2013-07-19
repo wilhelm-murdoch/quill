@@ -36,6 +36,14 @@ h4, h5, h6 {
   font-family: sans-serif;
 }
 
+img {
+  margin: auto;
+  display: block;
+  height: auto;
+  max-width: 100%;
+  width: auto;
+}
+
 h1 {
   font-size: 1.875em;
   line-height: 1.167;
@@ -245,6 +253,7 @@ article header h2 {
 article header h2 a {
   color: #323232;
   text-decoration: none;
+  border: none;
 }
 
 article header h2 a:hover {

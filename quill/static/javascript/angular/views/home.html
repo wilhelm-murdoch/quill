@@ -1,9 +1,10 @@
-<section id="home" class="container">
+<section id="home" class="container" infinite-scroll="nextPage()" infinite-scroll-disabled="loading">
   <article ng-repeat="article in articles">
     <header>
       <h2 id="{{ article.meta.path }}"><a href="#/{{ article.meta.path }}" title="{{ article.title}}" rel="bookmark">{{ article.title }}</a></h2>
-      <time datetime="{{ article.meta.year }}-{{ article.meta.month }}-{{ article.meta.day }}" pubdate>{{ moment(article.meta.date).format('MMMM Do, YYYY') }}</time>
+      <time datetime="{{ article.meta.year }}-{{ article.meta.month }}-{{ article.meta.day }}" pubdate>{{ moment(article.meta.date).format("MMMM Do, YYYY") }}</time>
     </header>
     <summary ng-bind-html-unsafe="article.summary">{{ article.summary }}</summary>
   </article>
+  <div ng-show="loading">Fetching Content ...</div>
 </section>

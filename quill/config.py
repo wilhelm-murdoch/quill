@@ -6,6 +6,7 @@ class LocalConfig(Config):
     THEME = 'Quill'
     SITE_TITLE = 'Quill'
     SITE_DESCRIPTION = ''
+    ARTICLES_FOLDER = '../inkwell-pokedex/articles'
 
 class TestConfig(LocalConfig):
     TESTING = True
