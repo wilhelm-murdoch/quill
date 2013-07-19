@@ -1,5 +1,9 @@
-<h2>Archive View</h2>
-<div ng-repeat="article in articles">
-  <h2><a href="#{{ article.meta.path }}" title="">{{ article.meta.title }}</a></h2>
-  <div ng-bind-html-unsafe="article.body">{{ article.body }}</div>
-</div>
+<section id="home" class="container">
+  <article ng-repeat="article in articles">
+    <header>
+      <h2 id="{{ article.meta.path }}"><a href="#/{{ article.meta.path }}" title="{{ article.meta.title}}" rel="bookmark">{{ article.title }}</a></h2>
+      <time datetime="{{ article.meta.year }}-{{ article.meta.month }}-{{ article.meta.day }}" pubdate>{{ moment(article.meta.date).format('MMMM Do, YYYY') }}</time>
+    </header>
+    <summary ng-bind-html-unsafe="article.summary">{{ article.summary }}</summary>
+  </article>
+</section>

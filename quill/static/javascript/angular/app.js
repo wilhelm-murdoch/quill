@@ -91,3 +91,10 @@ angular.module('Quill', ['ngResource'])
       , title:  '@title'
     })
   }])
+
+  .directive('time', function() {
+    return {
+      restrict: 'E',
+      templateUrl: 'static/javascript/angular/views/partials/time.html'
+    }
+  })

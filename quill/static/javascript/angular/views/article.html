@@ -1,9 +1,10 @@
-<section id="home" class="container">
+<section id="article" class="container">
   <article>
     <header>
-      <h2 id="{{ article.meta.path }}"><a href="#/{{ article.meta.path }}" title="{{ article.meta.title}}" rel="bookmark">{{ article.meta.title }}</a></h2>
+      <h2 id="{{ article.meta.path }}">{{ article.title }}</h2>
       <time datetime="{{ article.meta.year }}-{{ article.meta.month }}-{{ article.meta.day }}" pubdate>{{ moment(article.meta.date).format('MMMM Do, YYYY') }}</time>
     </header>
-    <summary ng-bind-html-unsafe="article.body">{{ article.body }}</summary>
+    <summary ng-bind-html-unsafe="article.summary">{{ article.summary }}</summary>
+    <div ng-bind-html-unsafe="article.body">{{ article.body }}</div>
   </article>
 </section>

@@ -146,38 +146,40 @@ address {
   font-style: normal;
 }
 
-/*----------------------------------------------------------------------------*/
-/* Lists
-/*----------------------------------------------------------------------------*/
-
 ul, ol, dl, dd {
   margin-bottom: 1.563em;
 }
+
 ul, ol {
   margin-left: 1.25em;
 }
+
 ul {
   list-style: disc;
 }
+
 ul ul, ol ul {
   list-style: circle;
 }
+
 ol, ul ol, ol ol ol {
   list-style: decimal;
 }
+
 ol ol {
   list-style: lower-alpha;
 }
+
 ul ul, ol ul, ul ol, ol ol {
   margin: 0.625em 0 0.938em;
   padding-left: 1.563em;
 }
+
 dt {
   font-size: 1.125em;
   font-weight: 700;
   line-height: 1.389;
 }
-
 
 code {
   background-color: #f2f2fc;
@@ -202,10 +204,6 @@ pre code {
 
 header {
   text-align: center;
-}
-
-header h1 {
-
 }
 
 article {
@@ -264,6 +262,10 @@ article p {
   -webkit-transition: .5s linear all;
   transition: .5s linear all;
   opacity: 0;
+}
+
+.animate-leave {
+  display: none;
 }
 
 .animate-enter.animate-enter-active {
