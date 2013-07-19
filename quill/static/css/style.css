@@ -4,6 +4,22 @@ body {
   padding: 25px 50px;
 }
 
+a {
+  -webkit-transition: 100ms linear all;
+  -moz-transition: 100ms linear all;
+  -ms-transition: 100ms linear all;
+  -o-transition: 100ms linear all;
+  transition: 100ms linear all;
+  border-bottom: 1px solid #323232;
+  color: #323232;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #666;
+  border-bottom-color: #666;
+}
+
 h1, h2, h3, h4, h5, b, strong, dt, th, caption, label {
   color: #18181e;
 }
@@ -17,7 +33,7 @@ h4, h5 {
 }
 
 h4, h5, h6 {
-  font-family: 'Lato', sans-serif;
+  font-family: sans-serif;
 }
 
 h1 {
@@ -245,6 +261,21 @@ article header time {
   text-transform: uppercase;
 }
 
+article header time a {
+  -webkit-transition: 100ms linear all;
+  -moz-transition: 100ms linear all;
+  -ms-transition: 100ms linear all;
+  -o-transition: 100ms linear all;
+  transition: 100ms linear all;
+  color: #696975;
+  text-decoration: none;
+  border: none;
+}
+
+article header time a:hover {
+  color: #323232;
+}
+
 article p {
   margin: 0 24%;
   text-align: justify;
@@ -259,8 +290,11 @@ article p {
 }
 
 .animate-enter {
-  -webkit-transition: .5s linear all;
-  transition: .5s linear all;
+  -webkit-transition: 500ms linear all;
+  -moz-transition: 500ms linear all;
+  -ms-transition: 500ms linear all;
+  -o-transition: 500ms linear all;
+  transition: 500ms linear all;
   opacity: 0;
 }
 
