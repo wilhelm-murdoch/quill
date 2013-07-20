@@ -1,5 +1,5 @@
 run:
-	env QUILL_CONFIG_MODULE=quill.config.LocalConfig python app.py
+	env QUILL_CONFIG_MODULE=config.LocalConfig python app.py
 
 install:
 	pip install -U -r requirements.txt

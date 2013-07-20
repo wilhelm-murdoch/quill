@@ -1,5 +1,5 @@
 <section id="home" class="container" infinite-scroll="nextPage()" infinite-scroll-disabled="loading">
-  <article ng-repeat="article in articles">
+  <article ng-repeat="article in articles" data-ng-animate="'animate'">
     <header>
       <h2 id="{{ article.meta.path }}"><a href="#/{{ article.meta.path }}" title="{{ article.title}}" rel="bookmark">{{ article.title }}</a></h2>
       <time datetime="{{ article.meta.year }}-{{ article.meta.month }}-{{ article.meta.day }}" pubdate>{{ moment(article.meta.date).format("MMMM Do, YYYY") }}</time>

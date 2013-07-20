@@ -84,25 +84,25 @@ angular.module('Quill', ['ngResource', 'infinite-scroll'])
   .config(['$routeProvider', function($routeProvider) {
     var archiveConfig = {
         controller: 'QuillArchiveCtrl'
-      , templateUrl: 'static/javascript/angular/views/archive.html'
+      , templateUrl: 'static/javascript/app/templates/archive.html'
     }
 
     $routeProvider.when('/', {
         controller: 'QuillHomeCtrl'
-      , templateUrl: 'static/javascript/angular/views/home.html'
+      , templateUrl: 'static/javascript/app/templates/home.html'
     })
     .when('/404', {
-      templateUrl: 'static/javascript/angular/views/404.html'
+      templateUrl: 'static/javascript/app/templates/404.html'
     })
     .when('/500', {
-      templateUrl: 'static/javascript/angular/views/500.html'
+      templateUrl: 'static/javascript/app/templates/500.html'
     })
     .when('/:year', archiveConfig)
     .when('/:year/:month', archiveConfig)
     .when('/:year/:month/:day', archiveConfig)
     .when('/:year/:month/:day/:title', {
         controller: 'QuillArticleCtrl'
-      , templateUrl: 'static/javascript/angular/views/article.html'
+      , templateUrl: 'static/javascript/app/templates/article.html'
     })
     .otherwise({
       redirectTo: '/404'
@@ -121,6 +121,6 @@ angular.module('Quill', ['ngResource', 'infinite-scroll'])
   .directive('time', function() {
     return {
       restrict: 'E',
-      templateUrl: 'static/javascript/angular/views/partials/time.html'
+      templateUrl: 'static/javascript/app/templates/partials/time.html'
     }
   })
