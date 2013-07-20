@@ -205,27 +205,6 @@ dt {
   line-height: 1.389;
 }
 
-code {
-  background-color: #f2f2fc;
-  color: #18181e;
-  font: 0.875em/1.429 Courier, Monaco, monospace;
-  padding: 0.214em;
-}
-
-pre {
-  background-color: #f2f2fc;
-  margin-bottom: 1.714em;
-  overflow: auto;
-  overflow-y: hidden;
-  padding: 0 0 1.429em 1.429em;
-}
-
-pre code {
-  background: none;
-  font-size: 14px;
-  padding: 0;
-}
-
 header {
   text-align: center;
 }

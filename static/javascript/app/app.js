@@ -87,8 +87,24 @@ angular.module('Quill', ['ngResource', 'infinite-scroll'])
   .controller('QuillArticleCtrl', ['$rootScope', '$scope', '$route',
     '$location', 'ArticlesLoader', function($rootScope, $scope, $route,
     $location, ArticlesLoader) {
-    $scope.articles = null
+    $scope.article = null
     $scope.moment = moment
+
+    $scope.$watch('article', function(article) {
+      if(article) {
+        body = $(article.body)
+        console.log($('pre code', body).text())
+        code = $('pre code', body)
+
+        if(code.length) {
+          console.log('omg')
+          Rainbow.color(code.text(), code.attr('class'), function(result) {
+            $scope.article.body = result
+            console.log(result)
+          })
+        }
+      }
+    })
 
     ArticlesLoader.get({
         year:  $route.current.params.year
@@ -146,7 +162,7 @@ angular.module('Quill', ['ngResource', 'infinite-scroll'])
 
   .directive('time', function() {
     return {
-      restrict: 'E',
-      templateUrl: 'static/javascript/app/templates/partials/time.html'
+        restrict: 'E'
+      , templateUrl: 'static/javascript/app/templates/partials/time.html'
     }
   })
