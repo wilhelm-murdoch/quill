@@ -1,6 +1,1 @@
-# !!!
-# Only production requirements here. Dev & testing requirements
-# should go into dev_requirements.txt
-# !!!
-
 -e git+ssh://git@github.com/wilhelm-murdoch/inkwell.git#egg=inkwell

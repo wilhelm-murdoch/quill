@@ -15,7 +15,8 @@ angular.module('Quill', ['ngResource', 'infinite-scroll'])
     $http.defaults.headers.common.Accept = 'application/json'
   }])
 
-  .controller('QuillHomeCtrl', ['$scope', 'ArticlesLoader', function($scope, ArticlesLoader) {
+  .controller('QuillHomeCtrl', ['$scope', 'ArticlesLoader', function($scope,
+    ArticlesLoader) {
     var perpage = parseInt(config.per_page)
 
     $scope.articles = []
@@ -49,7 +50,9 @@ angular.module('Quill', ['ngResource', 'infinite-scroll'])
     }
   }])
 
-  .controller('QuillArchiveCtrl', ['$rootScope', '$scope', '$route', '$location', 'ArticlesLoader', function($rootScope, $scope, $route, $location, ArticlesLoader) {
+  .controller('QuillArchiveCtrl', ['$rootScope', '$scope', '$route',
+    '$location', 'ArticlesLoader', function($rootScope, $scope, $route,
+    $location, ArticlesLoader) {
     $scope.articles = null
     $scope.moment = moment
 
@@ -81,7 +84,9 @@ angular.module('Quill', ['ngResource', 'infinite-scroll'])
     })
   }])
 
-  .controller('QuillArticleCtrl', ['$rootScope', '$scope', '$route', '$location', 'ArticlesLoader', function($rootScope, $scope, $route, $location, ArticlesLoader) {
+  .controller('QuillArticleCtrl', ['$rootScope', '$scope', '$route',
+    '$location', 'ArticlesLoader', function($rootScope, $scope, $route,
+    $location, ArticlesLoader) {
     $scope.articles = null
     $scope.moment = moment
 
