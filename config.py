@@ -7,6 +7,8 @@ class LocalConfig(Config):
     SITE_TITLE = 'Quill'
     SITE_DESCRIPTION = ''
     ARTICLES_FOLDER = 'articles'
+    AUTHOR = 'devilmayco.de'
+    PER_PAGE = 5
 
 class TestConfig(LocalConfig):
     TESTING = True

@@ -4,6 +4,11 @@ angular.module('Quill', ['ngResource', 'infinite-scroll'])
     $rootScope.$on('$routeChangeError', function() {
       $location.path('/404').replace()
     })
+
+    $rootScope.title = config.title
+    $rootScope.description = config.description
+    $rootScope.theme = config.theme
+    $rootScope.author = config.author
   }])
 
   .controller('QuillCtrl', ['$http', function($http) {
@@ -11,7 +16,7 @@ angular.module('Quill', ['ngResource', 'infinite-scroll'])
   }])
 
   .controller('QuillHomeCtrl', ['$scope', 'ArticlesLoader', function($scope, ArticlesLoader) {
-    var perpage = 5
+    var perpage = parseInt(config.per_page)
 
     $scope.articles = []
     $scope.moment   = moment
@@ -44,13 +49,27 @@ angular.module('Quill', ['ngResource', 'infinite-scroll'])
     }
   }])
 
-  .controller('QuillArchiveCtrl', ['$scope', '$route', '$location', 'ArticlesLoader', function($scope, $route, $location, ArticlesLoader) {
+  .controller('QuillArchiveCtrl', ['$rootScope', '$scope', '$route', '$location', 'ArticlesLoader', function($rootScope, $scope, $route, $location, ArticlesLoader) {
     $scope.articles = null
     $scope.moment = moment
+
+    var year  = $route.current.params.year
+    var month = $route.current.params.month
+    var day   = $route.current.params.day
+    var page_title = config.title + ' - Archives - '
+
+    if(year && month && day) {
+      $rootScope.page_title = page_title + moment(year + '/' + month + '/' + day).format('MMMM Do, YYYY')
+    } else if(year && month) {
+      $rootScope.page_title = page_title + moment(year + '/' + month + '/1').format('MMMM, YYYY')
+    } else if(year) {
+      $rootScope.page_title = page_title + year
+    }
+
     ArticlesLoader.query({
-        year:  $route.current.params.year
-      , month: $route.current.params.month
-      , day:   $route.current.params.day
+        year:  year
+      , month: month
+      , day:   day
     }
     , function(articles) {
       $scope.articles = articles
@@ -62,9 +81,10 @@ angular.module('Quill', ['ngResource', 'infinite-scroll'])
     })
   }])
 
-  .controller('QuillArticleCtrl', ['$scope', '$route', '$location', 'ArticlesLoader', function($scope, $route, $location, ArticlesLoader) {
+  .controller('QuillArticleCtrl', ['$rootScope', '$scope', '$route', '$location', 'ArticlesLoader', function($rootScope, $scope, $route, $location, ArticlesLoader) {
     $scope.articles = null
     $scope.moment = moment
+
     ArticlesLoader.get({
         year:  $route.current.params.year
       , month: $route.current.params.month
@@ -73,6 +93,7 @@ angular.module('Quill', ['ngResource', 'infinite-scroll'])
     }
     , function(article) {
       $scope.article = article
+      $rootScope.page_title = config.title + ' - ' + $scope.article.title
     }
     , function(response) {
       if(_.contains([404, 500], response.status)) {
