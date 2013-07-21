@@ -4,7 +4,10 @@
       <h2 id="{{ article.meta.path }}"><a href="#/{{ article.meta.path }}" title="{{ article.title}}" rel="bookmark">{{ article.title }}</a></h2>
       <time datetime="{{ article.meta.year }}-{{ article.meta.month }}-{{ article.meta.day }}" pubdate>{{ moment(article.meta.date).format("MMMM Do, YYYY") }}</time>
     </header>
-    <summary ng-bind-html-unsafe="article.summary">{{ article.summary }}</summary>
+    <div class="article-content" data-ng-switch="!article.summary">
+      <div class="article-summary" data-ng-switch-when="false" data-ng-bind-html-unsafe="article.summary">{{ article.summary }}</div>
+      <div class="article-body" data-ng-switch-when="true" data-ng-bind-html-unsafe="article.body">{{ article.body }}</div>
+    </div>
     <hr class="divider" />
   </article>
   <div ng-show="loading">Fetching Content ...</div>

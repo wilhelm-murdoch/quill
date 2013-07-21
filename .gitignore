@@ -1,4 +1,7 @@
 articles/*.txt
+static/.webassets-cache
+assets.js
+assets.css
 
 !articles/.gitkeep
 *.pyc
