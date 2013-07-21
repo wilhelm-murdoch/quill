@@ -35,6 +35,7 @@ def bootstrap(configuration=None):
     assets.register('javascript', Bundle(
           'javascript/jquery.min.js'
         , 'javascript/rainbow.min.js'
+        , 'javascript/rainbow.linenumbers.js'
         , 'javascript/moment.min.js'
         , 'javascript/underscore.min.js'
         , 'javascript/angular.min.js'
