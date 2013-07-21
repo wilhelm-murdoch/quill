@@ -92,17 +92,6 @@ angular.module('Quill', ['ngResource', 'infinite-scroll'])
 
     $scope.$watch('article', function(article) {
       if(article) {
-        body = $(article.body)
-        console.log($('pre code', body).text())
-        code = $('pre code', body)
-
-        if(code.length) {
-          console.log('omg')
-          Rainbow.color(code.text(), code.attr('class'), function(result) {
-            $scope.article.body = result
-            console.log(result)
-          })
-        }
       }
     })
 
@@ -166,3 +155,14 @@ angular.module('Quill', ['ngResource', 'infinite-scroll'])
       , templateUrl: 'static/javascript/app/templates/partials/time.html'
     }
   })
+
+  .directive('article', ['$timeout', function($timeout) {
+    return {
+        restrict: 'E'
+      , link: function($scope, element, attrs) {
+        $timeout(function() {
+          Rainbow.color()
+        }, 200)
+      }
+    }
+  }])

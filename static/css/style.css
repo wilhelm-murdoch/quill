@@ -1,7 +1,7 @@
 body {
   color: #32323a;
   font: normal 400 1.2em/1.563 'Crimson Text', serif;
-  padding: 25px 50px;
+  padding: 25px 0;
 }
 
 a {
@@ -209,10 +209,10 @@ header {
   text-align: center;
 }
 
-article {
-  padding-bottom: 50px;
-  margin-bottom: 50px;
+article hr.divider {
+  border: none;
   border-bottom: 1px solid #eee;
+  margin: 50px 25px;
 }
 
 article header {

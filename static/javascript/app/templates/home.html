@@ -5,6 +5,7 @@
       <time datetime="{{ article.meta.year }}-{{ article.meta.month }}-{{ article.meta.day }}" pubdate>{{ moment(article.meta.date).format("MMMM Do, YYYY") }}</time>
     </header>
     <summary ng-bind-html-unsafe="article.summary">{{ article.summary }}</summary>
+    <hr class="divider" />
   </article>
   <div ng-show="loading">Fetching Content ...</div>
 </section>

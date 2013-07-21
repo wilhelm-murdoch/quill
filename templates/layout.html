@@ -3,8 +3,8 @@
   <head>
     <title data-ng-bind="$root.page_title">{{ config.get('SITE_TITLE') }}</title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" lang="en-us" dir="ltr">
-    <meta name="description" content="">
-    <meta name="author" content="Daniel Wilhelm Murdoch, http://github.com/wilhelm-murdoch/">
+    <meta name="description" content="{{ config.get('SITE_DESCRIPTION') }}">
+    <meta name="author" content="{{ config.get('AUTHOR') }}">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <link href="/static/css/reset.css" type="text/css" rel="stylesheet">
     <link href="/static/css/style.css" type="text/css" rel="stylesheet">
@@ -12,6 +12,8 @@
     <link href="http://fonts.googleapis.com/css?family=Lato%3A400%2C700%2C400italic%2C700italic%7CCrimson+Text%3A400%2C400italic%2C700&#038;ver=1.0.1" type="text/css" rel="stylesheet"  media="screen" />
     <script src="/static/javascript/jquery.min.js"></script>
     <script src="/static/javascript/rainbow.min.js"></script>
+    <script src="/static/javascript/language/generic.js"></script>
+    <script src="/static/javascript/language/python.js"></script>
     <script src="/static/javascript/moment.min.js"></script>
     <script src="/static/javascript/underscore.min.js"></script>
     <script src="/static/javascript/angular.min.js"></script>
@@ -30,5 +32,6 @@
   </head>
   <body class="ng-cloak">
     <div data-ng-view id="ng-view" data-ng-animate="'animate'"></div>
+    <footer></footer>
   </body>
 </html>
