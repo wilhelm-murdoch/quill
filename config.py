@@ -9,6 +9,7 @@ class LocalConfig(Config):
     ARTICLES_FOLDER = 'articles'
     AUTHOR = 'devilmayco.de'
     PER_PAGE = 5
+    DISQUS = 'thedrunkenepic'
 
 class TestConfig(LocalConfig):
     TESTING = True

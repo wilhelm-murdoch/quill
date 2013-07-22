@@ -207,6 +207,26 @@ dt {
 
 header {
   text-align: center;
+  border-bottom: 2px solid #eee;
+  padding: 25px 0;
+  margin-bottom: 25px;
+}
+
+header h1 {
+  font-size: 4em;
+  margin: 0;
+}
+
+header h1 small {
+  color: #999;
+  display: block;
+  letter-spacing: 0.1em;
+  margin: 1em 0;
+  font-size: .3em;
+}
+
+header h1 a {
+  border: none;
 }
 
 pre {
@@ -255,18 +275,19 @@ footer p a {
   border-bottom-color: #999;
 }
 
-/* Article */
-
-article hr.divider {
+hr.divider {
   border: none;
   border-bottom: 1px solid #eee;
   margin: 50px 25px;
 }
 
+/* Article */
+
 article header {
   margin-bottom: 1.25em;
   text-align: center;
   position: relative;
+  border: none;
 }
 
 article header h2 {
@@ -318,6 +339,11 @@ article p {
   text-align: justify;
   margin: 0 auto 1.1em auto;
   font-size: 1.3em;
+}
+
+#comments {
+  padding: 0 24%;
+  max-width: 800px;
 }
 
 /* Rainbow Line Numbers */

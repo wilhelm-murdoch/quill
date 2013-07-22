@@ -40,6 +40,7 @@ def bootstrap(configuration=None):
         , 'javascript/underscore.min.js'
         , 'javascript/angular.min.js'
         , 'javascript/angular-infinite-scroll.js'
+        , 'javascript/angular-disqus.js'
         , 'javascript/angular-resource.js'
         , 'javascript/app/app.js'
         , filters='jsmin'

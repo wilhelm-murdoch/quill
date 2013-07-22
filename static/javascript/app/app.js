@@ -1,10 +1,6 @@
-angular.module('Quill', ['ngResource', 'infinite-scroll'])
+angular.module('Quill', ['ngResource', 'ngDisqus', 'infinite-scroll'])
 
-  .run(['$rootScope', '$location', function($rootScope, $location) {
-    $rootScope.$on('$routeChangeError', function() {
-      $location.path('/404').replace()
-    })
-
+  .run(['$rootScope', function($rootScope) {
     $rootScope.title = config.title
     $rootScope.description = config.description
     $rootScope.theme = config.theme
@@ -15,8 +11,8 @@ angular.module('Quill', ['ngResource', 'infinite-scroll'])
     $http.defaults.headers.common.Accept = 'application/json'
   }])
 
-  .controller('QuillHomeCtrl', ['$scope', 'ArticlesLoader', function($scope,
-    ArticlesLoader) {
+  .controller('HomeCtrl',
+    ['$scope', 'ArticlesLoader', function($scope, ArticlesLoader) {
     var perpage = parseInt(config.per_page)
 
     $scope.articles = []
@@ -50,9 +46,9 @@ angular.module('Quill', ['ngResource', 'infinite-scroll'])
     }
   }])
 
-  .controller('QuillArchiveCtrl', ['$rootScope', '$scope', '$route',
-    '$location', 'ArticlesLoader', function($rootScope, $scope, $route,
-    $location, ArticlesLoader) {
+  .controller('ArchiveCtrl',
+    ['$rootScope', '$scope', '$route', '$location', 'ArticlesLoader',
+    function($rootScope, $scope, $route, $location, ArticlesLoader) {
     $scope.articles = null
     $scope.moment = moment
 
@@ -84,16 +80,14 @@ angular.module('Quill', ['ngResource', 'infinite-scroll'])
     })
   }])
 
-  .controller('QuillArticleCtrl', ['$rootScope', '$scope', '$route',
-    '$location', 'ArticlesLoader', function($rootScope, $scope, $route,
-    $location, ArticlesLoader) {
+  .controller('ArticleCtrl',
+    ['$rootScope', '$scope', '$route', '$location', '$window',
+      'ArticlesLoader',
+    function($rootScope, $scope, $route, $location, $window, ArticlesLoader) {
     $scope.article = null
     $scope.moment = moment
 
-    $scope.$watch('article', function(article) {
-      if(article) {
-      }
-    })
+    $window.disqus_shortname = config.disqus
 
     ArticlesLoader.get({
         year:  $route.current.params.year
@@ -113,30 +107,28 @@ angular.module('Quill', ['ngResource', 'infinite-scroll'])
   }])
 
   .config(['$routeProvider', function($routeProvider) {
-    var archiveConfig = {
-        controller: 'QuillArchiveCtrl'
-      , templateUrl: 'static/javascript/app/templates/archive.html'
-    }
-
     $routeProvider.when('/', {
-        controller: 'QuillHomeCtrl'
+        controller: 'HomeCtrl'
       , templateUrl: 'static/javascript/app/templates/home.html'
     })
-    .when('/404', {
-      templateUrl: 'static/javascript/app/templates/404.html'
+    .when('/:year', {
+        controller: 'ArchiveCtrl'
+      , templateUrl: 'static/javascript/app/templates/archive.html'
     })
-    .when('/500', {
-      templateUrl: 'static/javascript/app/templates/500.html'
+    .when('/:year/:month', {
+        controller: 'ArchiveCtrl'
+      , templateUrl: 'static/javascript/app/templates/archive.html'
     })
-    .when('/:year', archiveConfig)
-    .when('/:year/:month', archiveConfig)
-    .when('/:year/:month/:day', archiveConfig)
+    .when('/:year/:month/:day', {
+        controller: 'ArchiveCtrl'
+      , templateUrl: 'static/javascript/app/templates/archive.html'
+    })
     .when('/:year/:month/:day/:title', {
-        controller: 'QuillArticleCtrl'
+        controller: 'ArticleCtrl'
       , templateUrl: 'static/javascript/app/templates/article.html'
     })
     .otherwise({
-      redirectTo: '/404'
+      templateUrl: 'static/javascript/app/templates/404.html'
     })
   }])
 
