@@ -272,7 +272,7 @@ footer p {
 
 footer p a {
   color: #999;
-  border-bottom-color: #999;
+  border: none;
 }
 
 hr.divider {

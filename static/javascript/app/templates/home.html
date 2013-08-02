@@ -1,17 +1,23 @@
 <header>
   <h1><a href="/" title="Quill">Quill</a><small>a simple theme for a simple platform</small></h1>
 </header>
-<section id="home" class="container" infinite-scroll="nextPage()" infinite-scroll-disabled="loading">
-  <article ng-repeat="article in articles" data-ng-animate="'animate'">
+<section
+  id="home"
+  class="container"
+  infinite-scroll="nextPage()"
+  infinite-scroll-disabled="loading"
+  ng-animate="'animate'">
+  <article ng-repeat="article in articles" ng-animate="'animate'">
     <header>
-      <h2 id="{{ article.meta.path }}"><a href="#/{{ article.meta.path }}" title="{{ article.title}}" rel="bookmark">{{ article.title }}</a></h2>
+      <h2 id="{{ article.meta.path }}">
+        <a href="#/{{ article.meta.path }}" title="{{ article.title}}" rel="bookmark">{{ article.title }}</a>
+      </h2>
       <time datetime="{{ article.meta.year }}-{{ article.meta.month }}-{{ article.meta.day }}" pubdate>{{ moment(article.meta.date).format("MMMM Do, YYYY") }}</time>
     </header>
-    <div class="article-content" data-ng-switch="!article.summary">
-      <div class="article-summary" data-ng-switch-when="false" data-ng-bind-html-unsafe="article.summary">{{ article.summary }}</div>
-      <div class="article-body" data-ng-switch-when="true" data-ng-bind-html-unsafe="article.body">{{ article.body }}</div>
+    <div class="article-content" ng-switch="!article.summary">
+      <div class="article-summary" ng-switch-when="false" ng-bind-html-unsafe="article.summary">{{ article.summary }}</div>
+      <div class="article-body" ng-switch-when="true" ng-bind-html-unsafe="article.body">{{ article.body }}</div>
     </div>
     <hr class="divider" />
   </article>
-  <div ng-show="loading">Fetching Content ...</div>
 </section>

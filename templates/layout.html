@@ -1,7 +1,7 @@
 <!doctype html>
-<html data-ng-app="Quill" data-ng-controller="QuillCtrl">
+<html ng-app="Quill" ng-controller="QuillCtrl">
   <head>
-    <title data-ng-bind="$root.page_title">{{ config.get('SITE_TITLE') }}</title>
+    <title>{{ config.get('SITE_TITLE') }}</title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" lang="en-us" dir="ltr">
     <meta name="description" content="{{ config.get('SITE_DESCRIPTION') }}">
     <meta name="author" content="{{ config.get('AUTHOR') }}">
@@ -27,8 +27,8 @@
         }
     </script>
   </head>
-  <body class="ng-cloak">
-    <div id="main" data-ng-view data-ng-animate="'animate'"></div>
+  <body ng-cloak>
+    <div id="main" ng-view></div>
     <footer>
         <p>powered by <a href="https://github.com/wilhelm-murdoch/inkwell" title="Inkwell">Inkwell</a>, themed by <a href="https://github.com/wilhelm-murdoch/quill" title="Quill">Quill</a> and created by <a href="http://devilmayco.de/" title="Devil May Code">devilmayco.de</a></p>
         <p>content authored by {{ config.get('AUTHOR') }}</p>

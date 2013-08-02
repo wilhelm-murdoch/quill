@@ -1,4 +1,4 @@
-angular.module('Quill', ['ngResource', 'ngDisqus', 'infinite-scroll'])
+angular.module('Quill', ['ngResource', 'infinite-scroll'])
 
   .run(['$rootScope', function($rootScope) {
     $rootScope.title = config.title
@@ -25,6 +25,7 @@ angular.module('Quill', ['ngResource', 'ngDisqus', 'infinite-scroll'])
     $scope.nextPage = function() {
       if(!$scope.done) {
         $scope.loading = true
+
         ArticlesLoader.query({
           limit:  $scope.limit,
           offset: $scope.offset
@@ -36,11 +37,11 @@ angular.module('Quill', ['ngResource', 'ngDisqus', 'infinite-scroll'])
 
             $scope.offset += perpage
             $scope.limit  += perpage
-            $scope.loading = false
           } else {
             $scope.done = true
-            $scope.loading = false
           }
+
+          $scope.loading = false
         })
       }
     }
@@ -55,15 +56,6 @@ angular.module('Quill', ['ngResource', 'ngDisqus', 'infinite-scroll'])
     var year  = $route.current.params.year
     var month = $route.current.params.month
     var day   = $route.current.params.day
-    var page_title = config.title + ' - Archives - '
-
-    if(year && month && day) {
-      $rootScope.page_title = page_title + moment(year + '/' + month + '/' + day).format('MMMM Do, YYYY')
-    } else if(year && month) {
-      $rootScope.page_title = page_title + moment(year + '/' + month + '/1').format('MMMM, YYYY')
-    } else if(year) {
-      $rootScope.page_title = page_title + year
-    }
 
     ArticlesLoader.query({
         year:  year
@@ -86,8 +78,6 @@ angular.module('Quill', ['ngResource', 'ngDisqus', 'infinite-scroll'])
     function($rootScope, $scope, $route, $location, $window, ArticlesLoader) {
     $scope.article = null
     $scope.moment = moment
-
-    $window.disqus_shortname = config.disqus
 
     ArticlesLoader.get({
         year:  $route.current.params.year
