@@ -1,12 +1,8 @@
-<header>
-  <h1><a href="/" title="Quill">Quill</a><small>a simple theme for a simple platform</small></h1>
-</header>
 <section
   id="home"
   class="container"
-  infinite-scroll="nextPage()"
-  infinite-scroll-disabled="loading"
-  ng-animate="'animate'">
+  infinite-scroll="next()"
+  infinite-scroll-disabled="isLoading">
   <article ng-repeat="article in articles" ng-animate="'animate'">
     <header>
       <h2 id="{{ article.meta.path }}">

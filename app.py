@@ -42,6 +42,9 @@ def bootstrap(configuration=None):
         , 'javascript/angular-infinite-scroll.js'
         , 'javascript/angular-resource.js'
         , 'javascript/app/app.js'
+        , 'javascript/app/controllers.js'
+        , 'javascript/app/directives.js'
+        , 'javascript/app/factories.js'
         , filters='jsmin'
         , output='javascript/assets.js'
     ))

@@ -1,7 +1,8 @@
 body {
   color: #32323a;
   font: normal 400 1.2em/1.563 'Crimson Text', serif;
-  padding: 25px 0;
+  padding: 0;
+  margin: 0;
 }
 
 a {
@@ -207,22 +208,24 @@ dt {
 
 header {
   text-align: center;
-  border-bottom: 2px solid #eee;
-  padding: 25px 0;
+  border-bottom: 1px solid #eee;
+  padding: 15px;
   margin-bottom: 25px;
+  background: #f1f1f1 url('/static/images/bg.png');
 }
 
 header h1 {
-  font-size: 4em;
+  font-size: 2em;
   margin: 0;
+  padding: 0;
 }
 
 header h1 small {
   color: #999;
   display: block;
   letter-spacing: 0.1em;
-  margin: 1em 0;
-  font-size: .3em;
+  margin: .5em 0;
+  font-size: .4em;
 }
 
 header h1 a {
@@ -230,11 +233,8 @@ header h1 a {
 }
 
 pre {
+  background: #1d1f21 url('/static/images/bg-code.png');
   padding: 25px 24% !important;
-}
-
-pre {
-  padding: 0;
   font-family: 'Monaco', 'Source Code Pro', monospace;
   font-size: 1em;
 }
@@ -284,6 +284,7 @@ hr.divider {
 /* Article */
 
 article header {
+  background: transparent none;
   margin-bottom: 1.25em;
   text-align: center;
   position: relative;
@@ -302,10 +303,6 @@ article header h2 a {
   color: #323232;
   text-decoration: none;
   border: none;
-}
-
-article header h2 a:hover {
-  border-bottom: 1px solid #323232;
 }
 
 article header time {
@@ -354,16 +351,12 @@ article p {
 }
 
 .rainbow .line:hover {
-  background-color: #171b1c;
-}
-
-.rainbow .line:hover .line-number {
   background-color: #101313;
 }
 
 .rainbow .line .line-number {
   text-align: right;
-  background-color: #1b2022;
+  background-color: #101313;
   color: #969896;
   padding-left: 0.8em;
   padding-right: 0.8em;

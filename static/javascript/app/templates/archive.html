@@ -1,4 +1,8 @@
-<section id="home" class="container">
+<section
+  id="home"
+  class="container"
+  infinite-scroll="next()"
+  infinite-scroll-disabled="isLoading">
   <article ng-repeat="article in articles" ng-animate="'animate'">
     <header>
       <h2 id="{{ article.meta.path }}"><a href="#/{{ article.meta.path }}" title="{{ article.title}}" rel="bookmark">{{ article.title }}</a></h2>
