@@ -1,5 +1,8 @@
-Quill.controller('HomeCtrl', ['$scope', 'ArticlePager', 'TitleService',
-  function($scope, ArticlePager, TitleService) {
+Quill.controller('HomeCtrl', [
+    '$scope'
+  , 'ArticlePager'
+  , 'TitleService'
+  , function($scope, ArticlePager, TitleService) {
   $scope.moment    = moment
   $scope.articles  = []
   $scope.isLoading = false
@@ -19,8 +22,12 @@ Quill.controller('HomeCtrl', ['$scope', 'ArticlePager', 'TitleService',
   }
 }])
 
-Quill.controller('ArchiveCtrl', ['$scope', '$route', 'ArticlePager', 'TitleService',
-  function($scope, $route, ArticlePager, TitleService) {
+Quill.controller('ArchiveCtrl', [
+    '$scope'
+  , '$route'
+  , 'ArticlePager'
+  , 'TitleService'
+  , function($scope, $route, ArticlePager, TitleService) {
   $scope.moment    = moment
   $scope.articles  = []
   $scope.isLoading = false
@@ -62,8 +69,12 @@ Quill.controller('ArchiveCtrl', ['$scope', '$route', 'ArticlePager', 'TitleServi
   }
 }])
 
-Quill.controller('ArticleCtrl', ['$scope', '$route', 'ArticlesLoader', 'TitleService',
-  function($scope, $route, ArticlesLoader, TitleService) {
+Quill.controller('ArticleCtrl', [
+    '$scope'
+  , '$route'
+  , 'ArticlesLoader'
+  , 'TitleService'
+  , function($scope, $route, ArticlesLoader, TitleService) {
   $scope.article = null
   $scope.moment = moment
 
