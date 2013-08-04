@@ -45,6 +45,7 @@ def bootstrap(configuration=None):
         , 'javascript/app/controllers.js'
         , 'javascript/app/directives.js'
         , 'javascript/app/factories.js'
+        , 'javascript/app/services.js'
         , filters='jsmin'
         , output='javascript/assets.js'
     ))

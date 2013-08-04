@@ -39,7 +39,7 @@ Quill.config(['$routeProvider', function($routeProvider) {
     , templateUrl: 'static/javascript/app/templates/article.html'
   })
   .otherwise({
-    templateUrl: 'static/javascript/app/templates/404.html'
+    redirectTo: '404'
   })
 }])
 

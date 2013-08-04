@@ -1,8 +1,10 @@
-Quill.controller('HomeCtrl', ['$scope', 'ArticlePager',
-  function($scope, ArticlePager) {
+Quill.controller('HomeCtrl', ['$scope', 'ArticlePager', 'TitleService',
+  function($scope, ArticlePager, TitleService) {
   $scope.moment    = moment
   $scope.articles  = []
   $scope.isLoading = false
+
+  TitleService.set(['Home'])
 
   var pager = new ArticlePager
 
@@ -17,16 +19,36 @@ Quill.controller('HomeCtrl', ['$scope', 'ArticlePager',
   }
 }])
 
-Quill.controller('ArchiveCtrl', ['$scope', '$route', 'ArticlePager',
-  function($scope, $route, ArticlePager) {
+Quill.controller('ArchiveCtrl', ['$scope', '$route', 'ArticlePager', 'TitleService',
+  function($scope, $route, ArticlePager, TitleService) {
   $scope.moment    = moment
   $scope.articles  = []
   $scope.isLoading = false
 
+  var year  = $route.current.params.year  || null
+  var month = $route.current.params.month || null
+  var day   = $route.current.params.day   || null
+
+  var titleComponents = ['Archives']
+
+  if(year && month && day) {
+    titleComponents.push(
+      moment(year + month + day, 'YYYYMMDD').format('MMMM Do, YYYY')
+    )
+  } else if(year && month) {
+    titleComponents.push(
+      moment(year + month + '01', 'YYYYMMDD').format('MMMM, YYYY')
+    )
+  } else {
+    titleComponents.push(year)
+  }
+
+  TitleService.set(titleComponents)
+
   var pager = new ArticlePager({
-      year:  $route.current.params.year
-    , month: $route.current.params.month
-    , day:   $route.current.params.day
+      year:  year
+    , month: month
+    , day:   day
   })
 
   $scope.next = function() {
@@ -40,8 +62,8 @@ Quill.controller('ArchiveCtrl', ['$scope', '$route', 'ArticlePager',
   }
 }])
 
-Quill.controller('ArticleCtrl', ['$scope', '$route', 'ArticlesLoader',
-  function($scope, $route, ArticlesLoader) {
+Quill.controller('ArticleCtrl', ['$scope', '$route', 'ArticlesLoader', 'TitleService',
+  function($scope, $route, ArticlesLoader, TitleService) {
   $scope.article = null
   $scope.moment = moment
 
@@ -53,9 +75,11 @@ Quill.controller('ArticleCtrl', ['$scope', '$route', 'ArticlesLoader',
   }
   , function(article) {
     $scope.article = article
+
+    TitleService.set([article.title])
   })
 }])
 
 Quill.controller('ErrorCtrl', ['$scope', function($scope) {
-
+  TitleService.set(['Error'])
 }])
