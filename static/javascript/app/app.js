@@ -9,7 +9,12 @@ Quill.run(['$rootScope', '$http', function($rootScope, $http) {
   $rootScope.author      = config.author
 }])
 
-Quill.config(['$routeProvider', function($routeProvider) {
+Quill.config(['$routeProvider', '$locationProvider',
+  function($routeProvider, $locationProvider) {
+
+  $locationProvider.html5Mode(true)
+  $locationProvider.hashPrefix = '!'
+
   $routeProvider.when('/', {
       controller: 'HomeCtrl'
     , templateUrl: 'static/javascript/app/templates/home.html'

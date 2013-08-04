@@ -80,6 +80,7 @@ Quill.controller('ArticleCtrl', ['$scope', '$route', 'ArticlesLoader', 'TitleSer
   })
 }])
 
-Quill.controller('ErrorCtrl', ['$scope', function($scope) {
+Quill.controller('ErrorCtrl', ['$scope', 'TitleService',
+  function($scope, TitleService) {
   TitleService.set(['Error'])
 }])
