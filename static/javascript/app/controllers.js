@@ -55,3 +55,7 @@ Quill.controller('ArticleCtrl', ['$scope', '$route', 'ArticlesLoader',
     $scope.article = article
   })
 }])
+
+Quill.controller('ErrorCtrl', ['$scope', function($scope) {
+
+}])

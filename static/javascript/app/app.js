@@ -14,6 +14,14 @@ Quill.config(['$routeProvider', function($routeProvider) {
       controller: 'HomeCtrl'
     , templateUrl: 'static/javascript/app/templates/home.html'
   })
+  .when('/404', {
+      controller: 'ErrorCtrl'
+    , templateUrl: 'static/javascript/app/templates/404.html'
+  })
+  .when('/500', {
+      controller: 'ErrorCtrl'
+    , templateUrl: 'static/javascript/app/templates/500.html'
+  })
   .when('/:year', {
       controller: 'ArchiveCtrl'
     , templateUrl: 'static/javascript/app/templates/archive.html'
@@ -33,4 +41,26 @@ Quill.config(['$routeProvider', function($routeProvider) {
   .otherwise({
     templateUrl: 'static/javascript/app/templates/404.html'
   })
+}])
+
+Quill.config(['$httpProvider', function($httpProvider) {
+  var interceptor = ['$q', '$location', function($q, $location) {
+    function success(response) {
+      return response
+    }
+
+    function error(response) {
+      if(_.contains([404, 500], response.status)) {
+        $location.path(String(response.status))
+      }
+
+      return $q.reject(response)
+    }
+
+    return function(promise) {
+      return promise.then(success, error)
+    }
+  }]
+
+  $httpProvider.responseInterceptors.push(interceptor)
 }])
