@@ -49,7 +49,8 @@ Quill.config(['$routeProvider', '$locationProvider',
 }])
 
 Quill.config(['$httpProvider', function($httpProvider) {
-  var interceptor = ['$q', '$location', function($q, $location) {
+  var interceptor = ['$q', '$location', '$rootScope', function($q, $location, $rootScope) {
+    $rootScope.loading = true
     function success(response) {
       return response
     }

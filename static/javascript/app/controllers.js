@@ -1,3 +1,13 @@
+Quill.controller('AppCtrl', ['$scope', function($scope) {
+  $scope.$on('$routeChangeStart', function(next, current) {
+    $scope.isLoading = true
+  })
+
+  $scope.$on('$routeChangeSuccess', function(next, current) {
+    $scope.isLoading = false
+  })
+}])
+
 Quill.controller('HomeCtrl', [
     '$scope'
   , 'ArticlePager'
