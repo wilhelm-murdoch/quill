@@ -1,4 +1,4 @@
-var Quill = angular.module('Quill', ['ngResource', 'infinite-scroll'])
+var Quill = angular.module('Quill', ['ngResource'])
 
 Quill.run(['$rootScope', '$http', function($rootScope, $http) {
   $http.defaults.headers.common.Accept = 'application/json'
@@ -17,31 +17,31 @@ Quill.config(['$routeProvider', '$locationProvider',
 
   $routeProvider.when('/', {
       controller: 'HomeCtrl'
-    , templateUrl: 'static/javascript/app/templates/home.html'
+    , templateUrl: 'static/js/app/templates/home.html'
   })
   .when('/404', {
       controller: 'ErrorCtrl'
-    , templateUrl: 'static/javascript/app/templates/404.html'
+    , templateUrl: 'static/js/app/templates/404.html'
   })
   .when('/500', {
       controller: 'ErrorCtrl'
-    , templateUrl: 'static/javascript/app/templates/500.html'
+    , templateUrl: 'static/js/app/templates/500.html'
   })
   .when('/:year', {
       controller: 'ArchiveCtrl'
-    , templateUrl: 'static/javascript/app/templates/archive.html'
+    , templateUrl: 'static/js/app/templates/archive.html'
   })
   .when('/:year/:month', {
       controller: 'ArchiveCtrl'
-    , templateUrl: 'static/javascript/app/templates/archive.html'
+    , templateUrl: 'static/js/app/templates/archive.html'
   })
   .when('/:year/:month/:day', {
       controller: 'ArchiveCtrl'
-    , templateUrl: 'static/javascript/app/templates/archive.html'
+    , templateUrl: 'static/js/app/templates/archive.html'
   })
   .when('/:year/:month/:day/:title', {
       controller: 'ArticleCtrl'
-    , templateUrl: 'static/javascript/app/templates/article.html'
+    , templateUrl: 'static/js/app/templates/article.html'
   })
   .otherwise({
     redirectTo: '404'

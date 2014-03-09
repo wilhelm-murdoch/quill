@@ -14,12 +14,10 @@ Quill.factory('ArticlePager', ['ArticlesLoader', function(ArticlesLoader) {
     var limit     = perpage
     var offset    = 0
     var isDone    = false
-    var isLoading = false
     var query     = query || {}
 
     this.next = function(success, failure) {
       if(!isDone) {
-        isLoading = true
 
         ArticlesLoader.query(_.extend({
             limit:  limit
@@ -33,13 +31,9 @@ Quill.factory('ArticlePager', ['ArticlesLoader', function(ArticlesLoader) {
             isDone = true
           }
 
-          isLoading = false
-
           success(result)
         }
         , function(error) {
-          isLoading = false
-
           if(failure) {
             failure(error)
           }

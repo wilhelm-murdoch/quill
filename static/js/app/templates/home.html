@@ -1,9 +1,5 @@
 <site-header></site-header>
-<section
-  id="home"
-  class="container"
-  infinite-scroll="next()"
-  infinite-scroll-disabled="isLoading">
+<section id="home" class="container">
   <article ng-repeat="article in articles" ng-animate="'animate'">
     <header>
       <h2 id="{{ article.meta.path }}">

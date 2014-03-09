@@ -34,30 +34,26 @@ def bootstrap(configuration=None):
     # in development mode.
     assets = Environment(app)
 
-    assets.debug = app.config['DEBUG']
+    assets.debug = app.config['DEBUG'] or False
 
-    assets.register('javascript', Bundle(
-          'javascript/jquery.min.js'
-        , 'javascript/rainbow.min.js'
-        , 'javascript/rainbow.linenumbers.js'
-        , 'javascript/moment.min.js'
-        , 'javascript/underscore.min.js'
-        , 'javascript/angular.min.js'
-        , 'javascript/angular-infinite-scroll.js'
-        , 'javascript/angular-resource.js'
-        , 'javascript/app/app.js'
-        , 'javascript/app/controllers.js'
-        , 'javascript/app/directives.js'
-        , 'javascript/app/factories.js'
-        , 'javascript/app/services.js'
+    assets.register('js', Bundle(
+          'js/jquery.min.js'
+        , 'js/moment.min.js'
+        , 'js/underscore.min.js'
+        , 'js/angular.min.js'
+        , 'js/angular-resource.js'
+        , 'js/app/app.js'
+        , 'js/app/controllers.js'
+        , 'js/app/directives.js'
+        , 'js/app/factories.js'
+        , 'js/app/services.js'
         , filters='jsmin'
-        , output='javascript/assets.js'
+        , output='js/assets.js'
     ))
 
     assets.register('css', Bundle(
-          'css/reset.css'
-        , 'css/style.css'
-        , 'css/rainbow.css'
+          'css/normalize.css'
+        , 'css/screen.css'
         , filters='cssmin'
         , output='css/assets.css'
     ))

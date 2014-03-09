@@ -1,13 +1,3 @@
-Quill.controller('AppCtrl', ['$scope', function($scope) {
-  $scope.$on('$routeChangeStart', function(next, current) {
-    $scope.isLoading = true
-  })
-
-  $scope.$on('$routeChangeSuccess', function(next, current) {
-    $scope.isLoading = false
-  })
-}])
-
 Quill.controller('HomeCtrl', [
     '$scope'
   , 'ArticlePager'
@@ -15,21 +5,18 @@ Quill.controller('HomeCtrl', [
   , function($scope, ArticlePager, TitleService) {
   $scope.moment    = moment
   $scope.articles  = []
-  $scope.isLoading = false
 
   TitleService.set(['Home'])
 
   var pager = new ArticlePager
 
   $scope.next = function() {
-    $scope.isLoading = true
     pager.next(function(articles){
       _.each(articles, function(e) {
         $scope.articles.push(e)
       })
-      $scope.isLoading = false
     })
-  }
+  }()
 }])
 
 Quill.controller('ArchiveCtrl', [
@@ -40,7 +27,6 @@ Quill.controller('ArchiveCtrl', [
   , function($scope, $route, ArticlePager, TitleService) {
   $scope.moment    = moment
   $scope.articles  = []
-  $scope.isLoading = false
 
   var year  = $route.current.params.year  || null
   var month = $route.current.params.month || null
@@ -69,12 +55,10 @@ Quill.controller('ArchiveCtrl', [
   })
 
   $scope.next = function() {
-    $scope.isLoading = true
     pager.next(function(articles){
       _.each(articles, function(e) {
         $scope.articles.push(e)
       })
-      $scope.isLoading = false
     })
   }
 }])
