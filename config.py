@@ -4,8 +4,8 @@ from inkwell import Config
 class LocalConfig(Config):
     PORT = 8080
     THEME = 'Quill'
-    SITE_TITLE = 'Quill'
-    SITE_DESCRIPTION = ''
+    SITE_TITLE = 'devilmayco.de'
+    SITE_DESCRIPTION = 'just a blogging platform.'
     ARTICLES_FOLDER = '../inkwell-pokedex/articles'
     AUTHOR = 'devilmayco.de'
     PER_PAGE = 5

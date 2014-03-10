@@ -10,6 +10,8 @@
     <meta name="HandheldFriendly" content="True" />
     <meta name="MobileOptimized" content="320" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="canonical" href="http://devilmayco.de/" />
+    <meta name="generator" content="Inkwell" />
 
     {% assets 'css' %}
         <link href="{{ ASSET_URL }}" type="text/css" rel="stylesheet">
@@ -33,9 +35,9 @@
   <body ng-cloak>
     <base href="/" />
     <header id="site-head">
-        <a id="blog-logo" href="/"><div class="bloglogo" style="background: url()"></div></a>
-        <h1 class="blog-title"><a href="/">Quill</a></h1>
-        <h2 class="blog-description">A nice theme for inkwell</h2>
+        <a id="blog-logo" href="/"><div class="bloglogo" style="background: url(http://devilmaycode.ghost.io/content/images/2014/Mar/bfb15f8dc0075bd96472d7ec3c908794.jpeg)"></div></a>
+        <h1 class="blog-title"><a href="/">{{ config.get('SITE_TITLE') }}</a></h1>
+        <h2 class="blog-description">{{ config.get('SITE_DESCRIPTION') }}</h2>
     </header>
     <main class="content" role="main">
         <div id="main" ng-view></div>
