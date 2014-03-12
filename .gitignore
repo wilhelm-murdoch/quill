@@ -1,7 +1,11 @@
 articles/*.txt
 static/.webassets-cache
-assets.js
-assets.css
+static/assets.js
+static/assets.css
 
 !articles/.gitkeep
 *.pyc
+.bower-cache
+.bower-registry
+.bower-tmp
+static/.bower

@@ -1,0 +1,12 @@
+{
+  "name": "Quill",
+  "version": "1.0.0",
+  "dependencies": {
+    "angular": "1.2.14",
+    "angular-route": "1.2.14",
+    "angular-resource": "1.2.14",
+    "angular-sanitize": "1.2.14",
+    "underscore": "1.6.0",
+    "moment": "2.5.1"
+  }
+}

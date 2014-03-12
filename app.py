@@ -37,16 +37,13 @@ def bootstrap(configuration=None):
     assets.debug = app.config['DEBUG'] or False
 
     assets.register('js', Bundle(
-          'js/jquery.min.js'
-        , 'js/moment.min.js'
-        , 'js/underscore.min.js'
-        , 'js/angular.min.js'
-        , 'js/angular-resource.js'
+          '.bower/moment/moment.js'
+        , '.bower/underscore/underscore.js'
+        , '.bower/angular/angular.js'
+        , '.bower/angular-route/angular-route.js'
+        , '.bower/angular-resource/angular-resource.js'
+        , '.bower/angular-sanitize/angular-sanitize.js'
         , 'js/app/app.js'
-        , 'js/app/controllers.js'
-        , 'js/app/directives.js'
-        , 'js/app/factories.js'
-        , 'js/app/services.js'
         , filters='jsmin'
         , output='js/assets.js'
     ))

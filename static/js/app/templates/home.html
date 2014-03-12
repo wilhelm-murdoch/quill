@@ -9,7 +9,7 @@
       </div>
     </header>
     <section class="post-excerpt">
-      <p class="article-summary" post-content>{{ article.summary || article.body }}</p>
+      <p ng-bind-html="( article.summary || article.body ) | unsafe"></p>
       <p class="readmore"><a href="/{{ article.meta.path }}">Read this article <i class="fa fa-chevron-circle-right"></i></a></p>
     </section>
   </article>

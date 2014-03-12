@@ -3,7 +3,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title></title>
+    <title>{{ config.get('SITE_TITLE') }}</title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" lang="en-us" dir="ltr">
     <meta name="description" content="{{ config.get('SITE_DESCRIPTION') }}">
     <meta name="author" content="{{ config.get('AUTHOR') }}">
@@ -26,7 +26,9 @@
               theme:       '{{ config.get('THEME') }}'
             , title:       '{{ config.get('SITE_TITLE') }}'
             , description: '{{ config.get('SITE_DESCRIPTION') }}'
-            , author:      '{{ config.get('AUTHOR') }}'
+            , author:      '{{ config.get('AUTHOR_NAME') }}'
+            , avatar:      '{{ config.get('AUTHOR_AVATAR') }}'
+            , bio:         '{{ config.get('AUTHOR_BIO') }}'
             , per_page:    '{{ config.get('PER_PAGE') }}'
             , disqus:      '{{ config.get('DISQUS') }}'
         }
@@ -35,19 +37,19 @@
   <body ng-cloak>
     <base href="/" />
     <header id="site-head">
-        <a id="blog-logo" href="/"><div class="bloglogo" style="background: url(http://devilmaycode.ghost.io/content/images/2014/Mar/bfb15f8dc0075bd96472d7ec3c908794.jpeg)"></div></a>
-        <h1 class="blog-title"><a href="/">{{ config.get('SITE_TITLE') }}</a></h1>
-        <h2 class="blog-description">{{ config.get('SITE_DESCRIPTION') }}</h2>
+      <a id="blog-logo" href="/"><div class="bloglogo" style="background: url({{ config.get('AUTHOR_AVATAR') }})"></div></a>
+      <h1 class="blog-title"><a href="/">{{ config.get('SITE_TITLE') }}</a></h1>
+      <h2 class="blog-description">{{ config.get('SITE_DESCRIPTION') }}</h2>
     </header>
     <main class="content" role="main">
-        <div id="main" ng-view></div>
+      <div id="main" ng-view></div>
     </main>
     <footer class="site-footer">
-        <div class="inner">
-             <section class="copyright">&copy; 2014 <a href="/">{{ config.get('SITE_TITLE') }}</a>. All rights reserved.</section>
-             <section>Vapor theme by <a href="http://sethlilly.com/">Seth Lilly</a></section>
-             <section class="poweredby">Proudly published with <a class="icon-ghost" href="http://ghost.org"><span class="hidden">Ghost</span></a></section>
-        </div>
+      <div class="inner">
+        <section class="copyright">&copy; 2014 <a href="/">{{ config.get('SITE_TITLE') }}</a>. All rights reserved.</section>
+        <section>Vapor theme by <a href="http://sethlilly.com/">Seth Lilly</a></section>
+        <section class="poweredby">Proudly published with <a class="icon-ghost" href="http://ghost.org"><span class="hidden">Ghost</span></a></section>
+      </div>
     </footer>
   </body>
 </html>
