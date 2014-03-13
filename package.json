@@ -16,6 +16,9 @@
     "type": "git",
     "url": "git://github.com/wilhelm-murdoch/quill.git"
   },
+  "scripts": {
+    "postinstall": "./node_modules/bower/bin/bower install"
+  },
   "author": "devilmayco.de",
   "homepage": "http://devilmayco.de"
 }
