@@ -22,7 +22,7 @@ def bootstrap(configuration=None):
             variable_end_string='%>',
         ))
 
-    app = CustomFlask(__name__)
+    app = CustomFlask(__name__, template_folder='static/html')
 
     @app.route('/')
     @app.route('/<int:year>')

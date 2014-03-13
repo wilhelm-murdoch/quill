@@ -17,7 +17,7 @@ var files = {
     , 'static/js/app.js'
   ],
   less: [
-    'static/css/screen.less'
+    'static/less/screen.less'
   ],
   css: [
       'static/css/screen.css'
