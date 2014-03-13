@@ -14,15 +14,15 @@ var Quill = angular.module('Quill', ['ngResource', 'ngRoute', 'ngSanitize'])
 
   $routeProvider.when('/', {
       controller: 'HomeCtrl'
-    , templateUrl: 'static/js/app/templates/article.html'
+    , templateUrl: 'static/js/article.html'
   })
   .when('/:year/:month?/:day?', {
       controller: 'ArchiveCtrl'
-    , templateUrl: 'static/js/app/templates/article.html'
+    , templateUrl: 'static/js/article.html'
   })
   .when('/:year/:month/:day/:title', {
       controller: 'ArticleCtrl'
-    , templateUrl: 'static/js/app/templates/article.html'
+    , templateUrl: 'static/js/article.html'
   })
   .otherwise({
     redirectTo: '/'

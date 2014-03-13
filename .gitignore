@@ -1,11 +1,11 @@
+.DS_Store
 articles/*.txt
-static/.webassets-cache
-static/assets.js
-static/assets.css
-
+static/js/app.min.js
+static/css/app.min.css
 !articles/.gitkeep
 *.pyc
 .bower-cache
 .bower-registry
 .bower-tmp
+node_modules
 static/.bower

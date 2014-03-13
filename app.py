@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 import os
 from flask import Blueprint, Flask, render_template
-from flask.ext.assets import Environment, Bundle
 from inkwell.inkwell import api
 
 def bootstrap(configuration=None):
@@ -35,32 +34,6 @@ def bootstrap(configuration=None):
 
     app.config.from_object(configuration or 'config.LocalConfig')
     app.register_blueprint(api)
-
-    # Automatically add all static css and javascript assets. This allows them
-    # to be minified, combined and compressed in production mode and included
-    # in development mode.
-    assets = Environment(app)
-
-    assets.debug = app.config['DEBUG'] or False
-
-    assets.register('js', Bundle(
-          '.bower/moment/moment.js'
-        , '.bower/underscore/underscore.js'
-        , '.bower/angular/angular.js'
-        , '.bower/angular-route/angular-route.js'
-        , '.bower/angular-resource/angular-resource.js'
-        , '.bower/angular-sanitize/angular-sanitize.js'
-        , 'js/app/app.js'
-        , filters='jsmin'
-        , output='js/assets.js'
-    ))
-
-    assets.register('css', Bundle(
-          'css/normalize.css'
-        , 'css/screen.css'
-        , filters='cssmin'
-        , output='css/assets.css'
-    ))
 
     return app
 

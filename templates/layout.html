@@ -12,14 +12,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="canonical" href="http://devilmayco.de/" />
     <meta name="generator" content="Inkwell" />
-
-    {% assets 'css' %}
-        <link href="<% ASSET_URL %>" type="text/css" rel="stylesheet">
-    {% endassets %}
-
-    {% assets 'js' %}
-        <script src="<% ASSET_URL %>"></script>
-    {% endassets %}
+    <link href="static/css/app.min.css" type="text/css" rel="stylesheet">
+    <script src="static/js/app.min.js"></script>
 
     <script>
         var config = {
@@ -42,7 +36,7 @@
       <h2 class="blog-description">{{ config.description }}</h2>
     </header>
     <main class="content" role="main">
-      <div id="main" ng-view>
+      <div id="main">
         <section id="home" class="container" ng-view></section>
       </div>
     </main>
