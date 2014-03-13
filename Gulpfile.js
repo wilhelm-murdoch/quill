@@ -17,10 +17,15 @@ var files = {
     , 'static/js/app.js'
   ],
   less: [
-
-      'static/.bower/font-awesome/less/font-awesome.less'
+      'static/.bower/font-awesome/css/font-awesome.min.css'
     , 'static/.bower/normalize-css/normalize.css'
     , 'static/css/screen.less'
+  ],
+  fonts: [
+      'static/.bower/font-awesome/fonts/fontawesome-webfont.eot'
+    , 'static/.bower/font-awesome/fonts/fontawesome-webfont.svg'
+    , 'static/.bower/font-awesome/fonts/fontawesome-webfont.ttf'
+    , 'static/.bower/font-awesome/fonts/fontawesome-webfont.woff'
   ]
 }
 
@@ -40,8 +45,13 @@ gulp.task('less', function() {
     .pipe(gulp.dest('static/css'));
 })
 
-gulp.task('watch', function() {
-  gulp.watch(files.js, ['js'])
+gulp.task('fonts', function() {
+  return gulp.src(files.fonts)
+    .pipe(gulp.dest('static/fonts'))
 })
 
-gulp.task('default', ['js'])
+gulp.task('watch', function() {
+  gulp.watch(files.js, ['js', 'less'])
+})
+
+gulp.task('default', ['js', 'less', 'fonts'])
