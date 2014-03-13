@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from inkwell import Config
+from inkwell.config import Config
 
 class LocalConfig(Config):
     PORT = 8080
