@@ -17,9 +17,12 @@ var files = {
     , 'static/js/app.js'
   ],
   less: [
-      'static/.bower/font-awesome/css/font-awesome.min.css'
+    'static/css/screen.less'
+  ],
+  css: [
+      'static/css/screen.css'
+    , 'static/.bower/font-awesome/css/font-awesome.min.css'
     , 'static/.bower/normalize-css/normalize.css'
-    , 'static/css/screen.less'
   ],
   fonts: [
       'static/.bower/font-awesome/fonts/fontawesome-webfont.eot'
@@ -30,23 +33,25 @@ var files = {
 }
 
 gulp.task('js', function() {
-  return gulp.src(files.js)
+  gulp.src(files.js)
     .pipe(concat('app.min.js'))
     .pipe(ngmin())
-    .pipe(gulp.dest('static/js/'))
+    .pipe(gulp.dest('static/js'))
 })
 
 gulp.task('less', function() {
-  return gulp.src(files.less)
-    .pipe(less({
-      paths: [path.join(__dirname, 'less')]
-    }))
-    .pipe(rename('app.min.css'))
-    .pipe(gulp.dest('static/css'));
+  gulp.src(files.less)
+    .pipe(less())
+    .pipe(rename('screen.css'))
+    .pipe(gulp.dest('static/css'))
+
+  gulp.src(files.css)
+    .pipe(concat('app.min.css'))
+    .pipe(gulp.dest('static/css'))
 })
 
 gulp.task('fonts', function() {
-  return gulp.src(files.fonts)
+  gulp.src(files.fonts)
     .pipe(gulp.dest('static/fonts'))
 })
 
