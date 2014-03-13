@@ -1,10 +1,6 @@
-
 .DS_Store
 articles/*.txt
-static/js/app.min.js
-static/css/app.min.css
 static/css/screen.css
-static/fonts/fontawesome*
 !articles/.gitkeep
 *.pyc
 .bower-cache

@@ -6,7 +6,7 @@ class LocalConfig(Config):
     THEME = 'Quill'
     SITE_TITLE = 'devilmayco.de'
     SITE_DESCRIPTION = 'Lover. Fighter. Gentleman. Coder.'
-    ARTICLES_FOLDER = '../inkwell-pokedex/articles'
+    ARTICLES_FOLDER = 'articles'
     AUTHOR_NAME = 'Wilhelm Murdoch'
     AUTHOR_AVATAR = 'https://en.gravatar.com/userimage/1306786/bfb15f8dc0075bd96472d7ec3c908794.jpg?size=200'
     AUTHOR_BIO = 'Resident code monkey at @localmeasure!'
