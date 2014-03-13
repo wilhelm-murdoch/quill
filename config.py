@@ -3,15 +3,15 @@ from inkwell.config import Config
 
 class LocalConfig(Config):
     PORT = 8080
-    THEME = 'Quill'
-    SITE_TITLE = 'devilmayco.de'
-    SITE_DESCRIPTION = 'Lover. Fighter. Gentleman. Coder.'
+    THEME = 'Vapor'
+    SITE_TITLE = 'My Inkwell Site'
+    SITE_DESCRIPTION = 'A teensy blog powered by Inkwell.'
     ARTICLES_FOLDER = 'articles'
     AUTHOR_NAME = 'Wilhelm Murdoch'
-    AUTHOR_AVATAR = 'https://en.gravatar.com/userimage/1306786/bfb15f8dc0075bd96472d7ec3c908794.jpg?size=200'
-    AUTHOR_BIO = 'Resident code monkey at @localmeasure!'
+    AUTHOR_AVATAR = ''
+    AUTHOR_BIO = ''
     PER_PAGE = 5
-    DISQUS = 'thedrunkenepic'
+    DISQUS = None
 
 class TestConfig(LocalConfig):
     TESTING = True
