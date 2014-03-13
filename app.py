@@ -16,7 +16,14 @@ def bootstrap(configuration=None):
     Returns::
         An instance of an Quill server.
     """
-    app = Flask(__name__)
+    class CustomFlask(Flask):
+        jinja_options = Flask.jinja_options.copy()
+        jinja_options.update(dict(
+            variable_start_string='<%',
+            variable_end_string='%>',
+        ))
+
+    app = CustomFlask(__name__)
 
     @app.route('/')
     @app.route('/<int:year>')

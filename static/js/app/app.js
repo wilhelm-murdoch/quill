@@ -1,12 +1,12 @@
 var Quill = angular.module('Quill', ['ngResource', 'ngRoute', 'ngSanitize'])
 
-Quill.run(['$rootScope', '$http', function($rootScope, $http) {
+.run(['$rootScope', '$http', function($rootScope, $http) {
   $http.defaults.headers.common.Accept = 'application/json'
 
   $rootScope.config = config
 }])
 
-Quill.config(['$routeProvider', '$locationProvider',
+.config(['$routeProvider', '$locationProvider',
   function($routeProvider, $locationProvider) {
 
   $locationProvider.html5Mode(true)
@@ -14,11 +14,11 @@ Quill.config(['$routeProvider', '$locationProvider',
 
   $routeProvider.when('/', {
       controller: 'HomeCtrl'
-    , templateUrl: 'static/js/app/templates/home.html'
+    , templateUrl: 'static/js/app/templates/article.html'
   })
   .when('/:year/:month?/:day?', {
       controller: 'ArchiveCtrl'
-    , templateUrl: 'static/js/app/templates/archive.html'
+    , templateUrl: 'static/js/app/templates/article.html'
   })
   .when('/:year/:month/:day/:title', {
       controller: 'ArticleCtrl'
@@ -29,13 +29,17 @@ Quill.config(['$routeProvider', '$locationProvider',
   })
 }])
 
-Quill.controller('HomeCtrl', [
+.controller('HomeCtrl', [
     '$scope'
+  , '$document'
   , 'ArticlePager'
-  , function($scope, ArticlePager) {
+  , function($scope, $document, ArticlePager) {
   $scope.moment   = moment
   $scope.articles = []
-
+  $scope.view     = 'home'
+  
+  $document.prop('title', $scope.config.title)
+  
   var pager = new ArticlePager
 
   $scope.next = function() {
@@ -47,13 +51,14 @@ Quill.controller('HomeCtrl', [
   }()
 }])
 
-Quill.controller('ArchiveCtrl', [
+.controller('ArchiveCtrl', [
     '$scope'
   , '$route'
   , 'ArticlePager'
   , function($scope, $route, ArticlePager) {
   $scope.moment   = moment
   $scope.articles = []
+  $scope.view     = 'archive'
 
   var pager = new ArticlePager({
       year:  $route.current.params.year
@@ -70,14 +75,15 @@ Quill.controller('ArchiveCtrl', [
   }()
 }])
 
-Quill.controller('ArticleCtrl', [
+.controller('ArticleCtrl', [
     '$scope'
   , '$route'
   , '$document'
   , 'ArticlesLoader'
   , function($scope, $route, $document, ArticlesLoader) {
-  $scope.article = null
-  $scope.moment = moment
+  $scope.articles = []
+  $scope.moment   = moment
+  $scope.view     = 'article'
 
   ArticlesLoader.get({
       year:  $route.current.params.year
@@ -86,11 +92,12 @@ Quill.controller('ArticleCtrl', [
     , title: $route.current.params.title
   }
   , function(article) {
-    $scope.article = article
+    $scope.articles.push(article)
+    $document.prop('title', article.title)
   })
 }])
 
-Quill.factory('ArticlesLoader', ['$resource', function($resource) {
+.factory('ArticlesLoader', ['$resource', function($resource) {
   return $resource('/inkwell/:year/:month/:day/:title', {
       year:  '@year'
     , month: '@month'
@@ -99,7 +106,7 @@ Quill.factory('ArticlesLoader', ['$resource', function($resource) {
   })
 }])
 
-Quill.factory('ArticlePager', ['ArticlesLoader', function(ArticlesLoader) {
+.factory('ArticlePager', ['ArticlesLoader', function(ArticlesLoader) {
   var perpage = parseInt(config.per_page)
 
   return function(query) {
@@ -134,14 +141,7 @@ Quill.factory('ArticlePager', ['ArticlesLoader', function(ArticlesLoader) {
   }
 }])
 
-Quill.directive('time', function() {
-  return {
-      restrict: 'E'
-    , templateUrl: 'static/js/app/templates/partials/time.html'
-  }
-})
-
-Quill.filter('unsafe', function($sce) {
+.filter('unsafe', function($sce) {
   return function(val) {
     return $sce.trustAsHtml(val);
   }

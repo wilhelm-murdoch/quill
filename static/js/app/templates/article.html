@@ -1,6 +1,6 @@
-<article>
+<article ng-repeat="article in articles" class="preview">
   <header>
-    <div ng-if="article.meta.tags.length" class="post-meta tags">Posted in {{ article.meta.tags.join(', ') }}</div>
+    <div ng-if="article.meta.tags.length && view == 'article'" class="post-meta tags">Posted in {{ article.meta.tags.join(', ') }}</div>
     <h1 class="post-title"><a href="/{{ article.meta.path }}" title="{{ article.title }}">{{ article.title }}</a></h1>
     <div class="post-meta">
       <time datetime="{{ article.meta.year }}-{{ article.meta.month }}-{{ article.meta.day }}">
@@ -8,12 +8,17 @@
       </time>
     </div>
   </header>
-  <section class="post-content">
-    <p ng-if="!!article.summary" ng-bind-html="article.summary | unsafe"></p>
-    <p ng-if="!!article.body" ng-bind-html="article.body | unsafe"></p>
+
+  <section ng-class="{'post-excerpt': view != 'article', 'post-content': view == 'article'}">
+    <p ng-if="view != 'article'" ng-bind-html="( article.summary || article.body ) | unsafe"></p>
+
+    <p ng-if="view == 'article' && !!article.summary" ng-bind-html="article.summary | unsafe"></p>
+    <p ng-if="view == 'article' && !!article.body" ng-bind-html="article.body | unsafe"></p>
+
+    <p ng-if="view != 'article'" class="readmore"><a href="/{{ article.meta.path }}">Read this article <i class="fa fa-chevron-circle-right"></i></a></p>
   </section>
 
-  <section class="share">
+  <section ng-if="view == 'article'" class="share">
     <p class="info">Share this post</p>
     <a class="icon-twitter" href="http://twitter.com/share?text={{ article.title }}&url={{}}"
         onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
@@ -29,7 +34,7 @@
     </a>
   </section>
 
-  <footer class="post-footer">
+  <footer ng-if="view == 'article'" class="post-footer">
     <section class="author">
       <div class="authorimage" style="background: url({{ config.avatar }})"></div>
       <p class="attr">Author</p>
