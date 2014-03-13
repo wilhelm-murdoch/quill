@@ -474,18 +474,18 @@ a.archive-link {
 }
 
 @font-face {
-    font-family: 'icons';
-    src: url('../fonts/fontawesome-webfont.eot');
-    src: url('../fonts/fontawesome-webfont.eot?#iefix') format('embedded-opentype'), 
-         url('../fonts/fontawesome-webfont.woff') format('woff'), 
-         url('../fonts/fontawesome-webfont.ttf') format('truetype'), 
-         url('../fonts/fontawesome-webfont.svg#icons') format('svg');
+    font-family: 'FontAwesome';
+    src: url('/static/fonts/fontawesome-webfont.eot');
+    src: url('/static/fonts/fontawesome-webfont.eot?#iefix') format('embedded-opentype'), 
+         url('/static/fonts/fontawesome-webfont.woff') format('woff'), 
+         url('/static/fonts/fontawesome-webfont.ttf') format('truetype'), 
+         url('/static/fonts/fontawesome-webfont.svg#icons') format('svg');
     font-weight: normal;
     font-style: normal;
 }
 
-.icon-ghost, .icon-feed, .icon-twitter, .icon-google-plus, .icon-facebook {
-    font-family: 'icons';
+.icon-feed, .icon-twitter, .icon-google-plus, .icon-facebook {
+    font-family: 'FontAwesome';
     speak: none;
     font-style: normal;
     font-weight: normal;
@@ -500,31 +500,19 @@ a.archive-link {
     padding-left: 0.5em
 }
 
-.icon-ghost:before {
-    content: "\e000"
-}
-
-.icon-feed:before {
-    content: "\e001"
-}
-
 .icon-twitter:before {
-    content: "\e002";
+    content: "\f081";
     font-size: 1.1em;
 }
 
 .icon-google-plus:before {
-    content: "\e003"
+    content: "\f0d4";
+    font-size: 1.1em;
 }
 
 .icon-facebook:before {
-    content: "\e004"
-}
-
-.icon-ghost {
-    font-size: 12px;
-    position: relative;
-    top: -1px;
+    content: "\f082";
+    font-size: 1.1em;
 }
 
 /* === Media Queries === */

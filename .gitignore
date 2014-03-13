@@ -9,5 +9,6 @@ static/fonts/fontawesome*
 .bower-cache
 .bower-registry
 .bower-tmp
+src/
 node_modules
 static/.bower
