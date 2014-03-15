@@ -3,7 +3,7 @@ from inkwell.config import Config
 
 class LocalConfig(Config):
     PORT = 8080
-    THEME = 'Vapor'
+    THEME = 'Inkwell - Vapor'
     SITE_TITLE = 'My Inkwell Site'
     SITE_DESCRIPTION = 'A teensy blog powered by Inkwell.'
     ARTICLES_FOLDER = 'articles'
