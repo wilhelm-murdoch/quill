@@ -1,8 +1,9 @@
 {
-  "name": "Quill",
+  "name": "Inkwell - Vapor",
   "version": "1.0.0",
   "dependencies": {
     "angular": "1.2.14",
+    "angular-disqus": "1.1.0",
     "angular-animate": "1.2.14",
     "angular-route": "1.2.14",
     "angular-resource": "1.2.14",

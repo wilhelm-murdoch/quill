@@ -473,7 +473,7 @@ a.archive-link {
     display: block;
   }
 }
-.animate.ng-enter {
+.animate .ng-enter {
   -webkit-transition: .5s linear all;
   -moz-transition: .5s linear all;
   -ms-transition: .5s linear all;
@@ -481,10 +481,10 @@ a.archive-link {
   transition: .5s linear all;
   opacity: 0;
 }
-.animate.ng-leave {
+.animate .ng-leave {
   display: none;
 }
-.animate.ng-enter-active {
+.animate .ng-enter-active {
   opacity: 1;
 }
 

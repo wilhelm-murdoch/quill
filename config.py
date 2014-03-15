@@ -11,7 +11,7 @@ class LocalConfig(Config):
     AUTHOR_AVATAR = 'http://www.gravatar.com/avatar/cbb57ea48be31179eabc9a79c524ad5b.png?size=150'
     AUTHOR_BIO = 'Resident code monkey at @localmeasure.'
     PER_PAGE = 5
-    DISQUS = None
+    DISQUS = 'thedrunkenepic'
 
 class TestConfig(LocalConfig):
     TESTING = True

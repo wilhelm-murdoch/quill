@@ -1,8 +1,8 @@
-var Quill = angular.module('Quill', ['ngResource', 'ngRoute', 'ngSanitize', 'ngAnimate'])
+var Quill = angular.module('Quill', ['ngResource', 'ngRoute', 'ngSanitize', 'ngAnimate', 'ngDisqus'])
 
-.run(['$rootScope', '$http', function($rootScope, $http) {
+.run(['$rootScope', '$http', '$disqus', function($rootScope, $http, $disqus) {
   $http.defaults.headers.common.Accept = 'application/json'
-
+  window.disqus_shortname = 'thedrunkenepic'
   $rootScope.config = config
 }])
 
