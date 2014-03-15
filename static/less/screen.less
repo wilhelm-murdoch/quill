@@ -542,3 +542,20 @@ a.archive-link {
         display: block
     }
 }
+
+.animate {
+    .ng-enter {
+        -webkit-transition: .5s linear all;
+        -moz-transition: .5s linear all;
+        -ms-transition: .5s linear all;
+        -o-transition: .5s linear all;
+        transition: .5s linear all;
+        opacity: 0;
+    }
+    .ng-leave {
+        display: none;
+    }
+    .ng-enter-active {
+        opacity: 1;
+    }
+}

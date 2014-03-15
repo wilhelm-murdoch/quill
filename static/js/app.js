@@ -1,4 +1,4 @@
-var Quill = angular.module('Quill', ['ngResource', 'ngRoute', 'ngSanitize'])
+var Quill = angular.module('Quill', ['ngResource', 'ngRoute', 'ngSanitize', 'ngAnimate'])
 
 .run(['$rootScope', '$http', function($rootScope, $http) {
   $http.defaults.headers.common.Accept = 'application/json'

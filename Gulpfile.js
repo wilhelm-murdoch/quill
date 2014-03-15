@@ -11,6 +11,7 @@ var files = {
       'static/.bower/moment/moment.js'
     , 'static/.bower/underscore/underscore.js'
     , 'static/.bower/angular/angular.js'
+    , 'static/.bower/angular-animate/angular-animate.js'
     , 'static/.bower/angular-route/angular-route.js'
     , 'static/.bower/angular-resource/angular-resource.js'
     , 'static/.bower/angular-sanitize/angular-sanitize.js'

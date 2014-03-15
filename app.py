@@ -30,7 +30,7 @@ def bootstrap(configuration=None):
     @app.route('/<int:year>/<int:month>')
     @app.route('/<int:year>/<int:month>/<int:day>')
     @app.route('/<int:year>/<int:month>/<int:day>/<title>')
-    def index():
+    def index(**kwargs):
         return render_template('layout.html')
 
     app.config.from_object(configuration or 'config.LocalConfig')
