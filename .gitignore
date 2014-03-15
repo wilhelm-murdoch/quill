@@ -1,7 +1,11 @@
+.DS_Store
 articles/*.txt
-static/.webassets-cache
-assets.js
-assets.css
-
+static/css/screen.css
 !articles/.gitkeep
 *.pyc
+.bower-cache
+.bower-registry
+.bower-tmp
+src/
+node_modules
+static/.bower

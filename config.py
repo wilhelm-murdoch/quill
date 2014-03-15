@@ -1,15 +1,17 @@
 # -*- coding: utf-8 -*-
-from inkwell import Config
+from inkwell.config import Config
 
 class LocalConfig(Config):
     PORT = 8080
-    THEME = 'Quill'
-    SITE_TITLE = 'Quill'
-    SITE_DESCRIPTION = ''
+    THEME = 'Vapor'
+    SITE_TITLE = 'My Inkwell Site'
+    SITE_DESCRIPTION = 'A teensy blog powered by Inkwell.'
     ARTICLES_FOLDER = 'articles'
-    AUTHOR = 'devilmayco.de'
+    AUTHOR_NAME = 'Wilhelm Murdoch'
+    AUTHOR_AVATAR = ''
+    AUTHOR_BIO = ''
     PER_PAGE = 5
-    DISQUS = 'thedrunkenepic'
+    DISQUS = None
 
 class TestConfig(LocalConfig):
     TESTING = True
