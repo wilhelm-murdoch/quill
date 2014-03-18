@@ -24,7 +24,7 @@ var files = {
   css: [
       'static/css/screen.css'
     , 'static/.bower/font-awesome/css/font-awesome.min.css'
-    , 'static/.bower/normalize-css/normalize.css'
+    // , 'static/.bower/normalize-css/normalize.css'
   ],
   fonts: [
       'static/.bower/font-awesome/fonts/fontawesome-webfont.eot'

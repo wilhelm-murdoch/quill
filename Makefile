@@ -8,4 +8,4 @@ install:
 	pip install -U -r requirements.txt
 
 clean:
-	find . -name \*.pyc -exec rm {\} \; ; rm -rf build/ dist/ *.egg-info *.egg
+	find . -name \*.pyc -exec rm {\} \; ; rm -rf node_modules/ build/ dist/ *.egg-info *.egg
